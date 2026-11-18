@@ -1,0 +1,33 @@
+name = "opportunity-radar-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-18"
+compatibility_flags = ["nodejs_compat"]
+
+# Workers AI binding (not used in Phase 0, but available for future)
+# [ai]
+# binding = "AI"
+
+# Queue for background processing
+[[queues.producers]]
+queue = "opportunity-radar-queue"
+binding = "QUEUE"
+
+[[queues.consumers]]
+queue = "opportunity-radar-queue"
+max_batch_size = 5
+max_batch_timeout = 30
+max_retries = 3
+dead_letter_queue = "opportunity-radar-dlq"
+
+# Dead letter queue
+[[queues.producers]]
+queue = "opportunity-radar-dlq"
+binding = "DLQ"
+
+# Cron trigger for Phase 0 testing (runs every 6 hours)
+[triggers]
+crons = ["0 */6 * * *"]
+
+# Local development port
+[dev]
+port = 8787

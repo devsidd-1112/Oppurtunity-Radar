@@ -1,0 +1,9 @@
+# Neon PostgreSQL connection string
+DATABASE_URL=
+
+# Google Gemini API credentials
+GEMINI_API_KEY=
+GEMINI_MODEL=
+
+# Internal API token for spike endpoint
+SPIKE_TOKEN=

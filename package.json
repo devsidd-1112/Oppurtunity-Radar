@@ -1,0 +1,21 @@
+{
+  "name": "opportunity-radar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Multi-user opportunity intelligence platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev -w @opportunity-radar/web",
+    "dev:api": "npm run dev -w @opportunity-radar/api",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
